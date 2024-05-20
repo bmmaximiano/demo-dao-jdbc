@@ -43,7 +43,9 @@ public class SellerDaoJDBC implements SellerDao {
 
 	@Override
 	public Seller findById(Integer id) {
+		//recebe os comandos SQL
 		PreparedStatement st = null;
+		// recebe o resultado da busca do banco de dados
 		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement(
