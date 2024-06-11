@@ -16,10 +16,14 @@ import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
 
+/*
+ * A classe do tipo DaoJDBC realiza as ações no banco de dados (CRUD).
+ */
 public class SellerDaoJDBC implements SellerDao {
 
 	private Connection conn;
 
+	// precisa receber como argumento no construtor uma conexão (connection)
 	public SellerDaoJDBC(Connection conn) {
 		this.conn = conn;
 	}
@@ -80,6 +84,8 @@ public class SellerDaoJDBC implements SellerDao {
 			st.setDouble(4, obj.getBaseSalary());
 			st.setInt(5, obj.getDepartment().getId());
 			st.setInt(6, obj.getId());
+			
+			//executa a percistencia no banco
 			st.executeUpdate();
 		}
 		catch(SQLException e) {
